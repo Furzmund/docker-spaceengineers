@@ -46,6 +46,7 @@ RUN \
 # Winetricks (This block uses most of the build time)
 COPY winetricks.sh /root/
 RUN \
+  chmod a+rx /root/winetricks.sh && \
   /root/winetricks.sh && \
   rm -f /root/winetricks.sh && \
   # Remove stuff we do not need anymore to reduce docker size
@@ -57,7 +58,9 @@ RUN \
   rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 COPY healthcheck.sh /root/
+RUN chmod a+rx /root/healthcheck.sh
 HEALTHCHECK --interval=60s --timeout=60s --start-period=600s --retries=3 CMD [ "/root/healthcheck.sh" ]
 
 COPY entrypoint.sh /root/
-ENTRYPOINT /root/entrypoint.sh
+RUN chmod a+rx /root/entrypoint.sh
+ENTRYPOINT ["/root/entrypoint.sh"]

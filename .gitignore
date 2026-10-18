@@ -1,1 +1,3 @@
 *local*
+appdata/
+*.code-workspace

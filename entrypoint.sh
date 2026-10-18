@@ -46,7 +46,7 @@ wine --version
 echo "----------------------------------START GAME---------------------------------"
 # mkdir first to fix possible no such file or directory on rm
 mkdir -p ${INSTANCES_DIR}/${INSTANCE_NAME}
-rm ${INSTANCES_DIR}/${INSTANCE_NAME}/*.log
+rm --force ${INSTANCES_DIR}/${INSTANCE_NAME}/*.log
 cd ${GAME_DIR}/DedicatedServer64/
 wine SpaceEngineersDedicated.exe -noconsole -ignorelastsession -path Z:\\appdata\\space-engineers\\instances\\${INSTANCE_NAME}
 echo "-----------------------------------END GAME----------------------------------"
