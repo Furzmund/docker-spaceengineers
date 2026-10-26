@@ -11,6 +11,7 @@ services:
       - ./appdata/space-engineers/instances:/appdata/space-engineers/instances
       - ./appdata/space-engineers/SpaceEngineersDedicated:/appdata/space-engineers/SpaceEngineersDedicated
       - ./appdata/space-engineers/steamcmd:/root/.steam
+      - /etc/localtime:/etc/localtime:ro
     ports:
       - target: 27016
         published: 27016
